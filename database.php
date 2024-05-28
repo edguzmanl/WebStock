@@ -9,10 +9,10 @@ class Database{
     private $charset;
 
     public function __construct(){
-        $this->host = 'localhost';
+        $this->host = 'basededatos';
         $this->db = 'bdwstock';
-        $this->user = 'root';
-        $this->password = '';
+        $this->user = 'bdwstock';
+        $this->password = 'Cambiar123@';
         $this->charset = 'utf8mb4';
     }
 

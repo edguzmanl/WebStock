@@ -1,0 +1,31 @@
+version : '3'
+services :
+  webstock :
+    build : .
+    ports :
+      - "8081:80"
+    networks :
+      - webstocknt
+    depends_on :
+      - basededatos
+
+  basededatos :
+    image : mysql:latest
+    environment :
+      MYSQL_ROOT_PASSWORD : Cambiar123@
+      MYSQL_DATABASE : bdwstock
+      MYSQL_USER : bdwstock
+      MYSQL_PASSWORD : Cambiar123@
+    ports :
+      - "3306:3306"
+    volumes :
+      - db_data:/var/lib/mysql
+      - ./sql/:/docker-entrypoint-initdb.d/
+    networks : 
+      - webstocknt
+
+networks :
+  webstocknt :
+
+volumes :
+  db_data :
